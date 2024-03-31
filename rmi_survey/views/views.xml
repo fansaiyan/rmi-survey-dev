@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+    <menuitem
+            name="RMI Survey"
+            id="rmi_survey_root_menu"
+            web_icon="rmi_survey,static/description/rmi_survey.png"
+    />
+    <menuitem
+            name="Data Master"
+            id="rmi_survey_master_data_menu"
+            parent="rmi_survey_root_menu"
+            sequence="2"
+    />
+  </data>
+</odoo>

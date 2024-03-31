@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="param_group_action" model="ir.actions.act_window">
+            <field name="name">Parameter Group</field>
+            <field name="res_model">rmi.param_group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+    <record id="param_group_view_form" model="ir.ui.view">
+        <field name="name">Form Param Group</field>
+        <field name="model">rmi.param_group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="param_dimensi"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="param_group_view_tree" model="ir.ui.view">
+        <field name="name">Parameter Group</field>
+        <field name="model">rmi.param_group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="param_dimensi"/>
+            </tree>
+        </field>
+    </record>
+        <menuitem
+            id="param_group_menu"
+            name="Parameter Group"
+            parent="rmi_survey_master_data_menu"
+            action="param_group_action"
+            sequence="2"
+    />
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="aspek_kinerja_action" model="ir.actions.act_window">
+            <field name="name">Aspek Kinerja</field>
+            <field name="res_model">rmi.aspek_kinerja</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+    <record id="aspek_kinerja_view_form" model="ir.ui.view">
+        <field name="name">Form Aspek Kinerja</field>
+        <field name="model">rmi.aspek_kinerja</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="nilai_aspek"/>
+                        <field name="nilai_konversi"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="aspek_kinerja_view_tree" model="ir.ui.view">
+        <field name="name">Aspek Kinerja</field>
+        <field name="model">rmi.aspek_kinerja</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nilai_aspek"/>
+                <field name="nilai_konversi"/>
+            </tree>
+        </field>
+    </record>
+    <menuitem
+            name="Aspek Kinerja"
+            id="rmi_survey_aspek_kinerja"
+            parent="rmi_survey_root_menu"
+            action="aspek_kinerja_action"
+            sequence="1"
+    />
+</odoo>

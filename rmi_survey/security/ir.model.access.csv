@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rmi_aspek_kinerja,access_rmi_aspek_kinerja,model_rmi_aspek_kinerja,base.group_user,1,1,1,1
+access_rmi_final_rating,access_rmi_final_rating,model_rmi_final_rating,base.group_user,1,1,1,1
+access_rmi_komposit_risiko,access_rmi_komposit_risiko,model_rmi_komposit_risiko,base.group_user,1,1,1,1
+access_rmi_param_dimensi,access_rmi_param_dimensi,model_rmi_param_dimensi,base.group_user,1,1,1,1
+access_rmi_param_group,access_rmi_param_group,model_rmi_param_group,base.group_user,1,1,1,1

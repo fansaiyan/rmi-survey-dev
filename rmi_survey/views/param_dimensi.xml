@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="param_dimensi_action" model="ir.actions.act_window">
+            <field name="name">Parameter Dimensi</field>
+            <field name="res_model">rmi.param_dimensi</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+    <record id="param_dimensi_view_form" model="ir.ui.view">
+        <field name="name">Form Param Dimensi</field>
+        <field name="model">rmi.param_dimensi</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="param_dimensi_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Parameter Group" name="param_groups">
+                            <field string="Daftar Paramter Group" name="param_groups">
+                                <tree>
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="param_dimensi_view_tree" model="ir.ui.view">
+        <field name="name">Parameter Dimensi</field>
+        <field name="model">rmi.param_dimensi</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="param_dimensi_id"/>
+                <field name="param_groups"/>
+            </tree>
+        </field>
+    </record>
+     <menuitem
+            id="param_dimensi_menu"
+            name="Parameter Dimensi"
+            parent="rmi_survey_master_data_menu"
+            action="param_dimensi_action"
+            sequence="1"
+    />
+</odoo>
