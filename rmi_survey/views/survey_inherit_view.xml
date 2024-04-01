@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form View Survey Form to Modify it -->
+    <record id="inherit_survey_view" model="ir.ui.view">
+        <field name="name">inherit.survey.view</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='user_id']" position="after">
+                <field name="jenis_industri"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Form View Survey Question Form to Modify it -->
+    <record id="inherit_survey_question_view" model="ir.ui.view">
+        <field name="name">inherit.survey.question.view</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='question_type']" position="after">
+                <field name="dimensi_names"/>
+                <field name="sub_dimensi_names"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
