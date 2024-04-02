@@ -14,11 +14,30 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="company_name" placeholder="e.g. PT. ABC"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="nilai_aspek"/>
-                        <field name="nilai_konversi"/>
+                        <group>
+                            <field name="aspect_values" options="{'no_create': True}"/>
+                            <field name="composite_risk_levels" options="{'no_create': True}"/>
+                            <field name="final_rating_weight" string="Bobot (%)"/>
+                            <field name="conversion_rating_value" string="Nilai Konversi x Bobot"/>
+                            <field name="total_rating_value" string="Total Nilai"/>
+                        </group>
+                        <group>
+                            <field name="aspect_conversion_value"/>
+                            <field name="composite_risk_conversion_value"/>
+                            <field name="composite_risk_weight" string="Bobot (%)"/>
+                            <field name="conversion_risk_value" string="Nilai Konversi x Bobot"/>
+                        </group>
                     </group>
+                    <footer>
+                        <button name="final_save" string="Save" class="oe_highlight"
+                                type="object" data-hotkey="q" />
+                    </footer>
                 </sheet>
             </form>
         </field>
@@ -28,9 +47,8 @@
         <field name="model">rmi.aspek_kinerja</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="nilai_aspek"/>
-                <field name="nilai_konversi"/>
+                <field name="aspect_values"/>
+                <field name="composite_risk_levels"/>
             </tree>
         </field>
     </record>

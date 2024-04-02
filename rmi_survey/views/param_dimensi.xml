@@ -20,7 +20,7 @@
                     </group>
                     <notebook>
                         <page string="Parameter Group" name="param_groups">
-                            <field string="Daftar Paramter Group" name="param_groups">
+                            <field string="Daftar Parameter Group" name="param_groups">
                                 <tree>
                                     <field name="name" />
                                 </tree>

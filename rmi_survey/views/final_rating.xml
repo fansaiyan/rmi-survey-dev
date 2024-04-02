@@ -8,7 +8,7 @@
             <field name="view_mode">tree,form</field>
         </record>
     </data>
-    <record id="aspek_kinerja_view_form" model="ir.ui.view">
+    <record id="final_rating_view_form" model="ir.ui.view">
         <field name="name">Form Final Rating</field>
         <field name="model">rmi.final_rating</field>
         <field name="arch" type="xml">
