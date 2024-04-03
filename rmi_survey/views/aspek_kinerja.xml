@@ -32,6 +32,7 @@
                             <field name="composite_risk_conversion_value"/>
                             <field name="composite_risk_weight" string="Bobot (%)"/>
                             <field name="conversion_risk_value" string="Nilai Konversi x Bobot"/>
+                            <field name="score_adjustment" string="Penyesuain Skor"/>
                         </group>
                     </group>
                     <footer>
@@ -49,6 +50,7 @@
             <tree>
                 <field name="aspect_values"/>
                 <field name="composite_risk_levels"/>
+                <field name="total_rating_value"/>
             </tree>
         </field>
     </record>
