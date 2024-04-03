@@ -1,0 +1,15 @@
+id,param_dimensi,name
+rmi_survey.rmi.param_group1,Budaya dan Kapabilitas Risiko,Budaya Risiko
+rmi_survey.rmi.param_group2,Budaya dan Kapabilitas Risiko,Kapabilitas Risiko
+rmi_survey.rmi.param_group3,Organisasi dan Tata Kelola Risiko,Organ Pengelola Risiko
+rmi_survey.rmi.param_group4,Organisasi dan Tata Kelola Risiko,Peran dan Tanggung Jawab Organ Pengelola Risiko
+rmi_survey.rmi.param_group5,Organisasi dan Tata Kelola Risiko,Model Tata Kelola Risiko Tiga Lini dan Tata Kelola Risiko Terintegrasi
+rmi_survey.rmi.param_group6,Kerangka Risiko dan Kepatuhan,Strategi Risiko
+rmi_survey.rmi.param_group7,Kerangka Risiko dan Kepatuhan,Kebijakan dan Prosedur
+rmi_survey.rmi.param_group8,Kerangka Risiko dan Kepatuhan,Fungsi Kepatuhan
+rmi_survey.rmi.param_group9,Proses dan Kontrol Risiko,Identifikasi Risiko
+rmi_survey.rmi.param_group10,Proses dan Kontrol Risiko,Pengukuran dan Prioritisasi Risiko
+rmi_survey.rmi.param_group11,Proses dan Kontrol Risiko,Perlakuan Risiko
+rmi_survey.rmi.param_group12,Proses dan Kontrol Risiko,Pelaporan Risiko
+rmi_survey.rmi.param_group13,Model, Data, dan Teknologi Risiko,Permodelan dan Teknologi Risiko
+rmi_survey.rmi.param_group14,Model, Data, dan Teknologi Risiko,Data Risiko

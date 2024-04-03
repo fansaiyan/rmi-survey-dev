@@ -24,6 +24,10 @@
 
     # always loaded
     'data': [
+        'data/rmi.final_rating.csv',
+        'data/rmi.komposit_risiko.csv',
+        'data/rmi.param_dimensi.csv',
+        'data/rmi.param_group.csv',
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/aspek_kinerja.xml',
