@@ -33,6 +33,7 @@ class AspekKinerja(models.Model):
         readonly=True
     )
     score_adjustment = fields.Float(string="Penyesuain Skor", readonly=True)
+    survey_ids = fields.Many2one('survey.survey', string="Survey")
 
     @api.onchange('final_rating_weight', 'aspect_values', 'composite_risk_levels')
     def _compute_conversion_rating_value(self):

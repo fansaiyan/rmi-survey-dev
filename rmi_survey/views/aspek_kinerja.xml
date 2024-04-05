@@ -19,7 +19,10 @@
                             <field name="company_name" placeholder="e.g. PT. ABC"/>
                         </h1>
                     </div>
-                    <group>
+                    <group string="Pilih Survey">
+                        <field name="survey_ids" string="Survey"/>
+                    </group>
+                    <group string="Input Aspek Kinerja">
                         <group>
                             <field name="aspect_values" options="{'no_create': True}"/>
                             <field name="composite_risk_levels" options="{'no_create': True}"/>
@@ -48,9 +51,11 @@
         <field name="model">rmi.aspek_kinerja</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="aspect_values"/>
-                <field name="composite_risk_levels"/>
-                <field name="total_rating_value"/>
+                <field name="survey_ids" optional="show"/>
+                <field name="aspect_values" optional="show"/>
+                <field name="composite_risk_levels" optional="show"/>
+                <field name="total_rating_value" optional="show"/>
+                <field name="score_adjustment" optional="hide"/>
             </tree>
         </field>
     </record>
