@@ -4,6 +4,7 @@ from odoo import models, fields, api
 
 
 class SurveyInherit(models.Model):
+    """inherited survey model"""
     _inherit = 'survey.survey'
 
     jenis_industri = fields.Selection([('umum', 'Umum'), ('perbankan', 'Perbankan'), ('asuransi', 'Asuransi')],
@@ -11,6 +12,7 @@ class SurveyInherit(models.Model):
 
 
 class SurveyQuestionInherit(models.Model):
+    """inherited survey question """
     _inherit = 'survey.question'
 
     dimensi_names = fields.Many2one('rmi.param_dimensi', 'Nama Dimensi')
@@ -21,3 +23,10 @@ class SurveyQuestionInherit(models.Model):
     def _onchange_dimension_id(self):
         if self.sub_dimensi_names:
             self.sub_dimensi_names = False
+
+
+class HrEmployeeInherit(models.Model):
+    """inherited hr employee """
+    _inherit = "hr.employee"
+
+    branch_id = fields.Many2one("res.branch", string='Default Branch')

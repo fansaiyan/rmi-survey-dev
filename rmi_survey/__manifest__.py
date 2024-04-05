@@ -35,6 +35,7 @@
         'views/param_group.xml',
         'views/final_rating.xml',
         'views/komposit_risiko.xml',
-        'views/survey_inherit_view.xml'
+        'views/survey_inherit_view.xml',
+        'views/res_branch_view.xml'
     ]
 }

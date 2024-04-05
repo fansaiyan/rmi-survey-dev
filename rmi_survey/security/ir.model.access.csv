@@ -4,3 +4,4 @@ access_rmi_final_rating,access_rmi_final_rating,model_rmi_final_rating,base.grou
 access_rmi_komposit_risiko,access_rmi_komposit_risiko,model_rmi_komposit_risiko,base.group_user,1,1,1,1
 access_rmi_param_dimensi,access_rmi_param_dimensi,model_rmi_param_dimensi,base.group_user,1,1,1,1
 access_rmi_param_group,access_rmi_param_group,model_rmi_param_group,base.group_user,1,1,1,1
+access_res_branch_group_user,res_branch_group_user,model_res_branch,,1,1,1,1

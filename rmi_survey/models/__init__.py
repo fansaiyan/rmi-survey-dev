@@ -6,3 +6,4 @@ from . import final_rating
 from . import komposit_risiko
 from . import param_dimensi
 from . import param_group
+from . import res_branch
