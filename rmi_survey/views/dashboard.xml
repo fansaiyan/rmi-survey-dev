@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="survey_dashboard_action" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="res_model">rmi.survey_dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+         </record>
+    </data>
+    <menuitem
+            name="Dashboard"
+            id="rmi_survey_dashboard"
+            parent="rmi_survey_root_menu"
+            action="survey_dashboard_action"
+            sequence="1"
+    />
+</odoo>

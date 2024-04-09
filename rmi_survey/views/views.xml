@@ -9,7 +9,7 @@
             name="Data Master"
             id="rmi_survey_master_data_menu"
             parent="rmi_survey_root_menu"
-            sequence="2"
+            sequence="3"
     />
   </data>
 </odoo>

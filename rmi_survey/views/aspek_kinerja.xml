@@ -64,6 +64,6 @@
             id="rmi_survey_aspek_kinerja"
             parent="rmi_survey_root_menu"
             action="aspek_kinerja_action"
-            sequence="1"
+            sequence="2"
     />
 </odoo>
