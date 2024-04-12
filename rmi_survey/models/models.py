@@ -9,6 +9,7 @@ class SurveyInherit(models.Model):
 
     jenis_industri = fields.Selection([('umum', 'Umum'), ('perbankan', 'Perbankan'), ('asuransi', 'Asuransi')],
                                       'Jenis Industri', default='umum')
+    periode = fields.Date('Periode')
 
 
 class SurveyQuestionInherit(models.Model):

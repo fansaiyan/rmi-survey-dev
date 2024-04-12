@@ -13,6 +13,6 @@
             id="rmi_survey_dashboard"
             parent="rmi_survey_root_menu"
             action="survey_dashboard_action"
-            sequence="1"
+            sequence="4"
     />
 </odoo>

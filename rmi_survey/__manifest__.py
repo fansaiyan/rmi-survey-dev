@@ -29,6 +29,7 @@
         'data/rmi.param_dimensi.csv',
         'data/rmi.param_group.csv',
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/views.xml',
         'views/aspek_kinerja.xml',
         'views/param_dimensi.xml',
