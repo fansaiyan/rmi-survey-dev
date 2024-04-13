@@ -78,6 +78,7 @@
             parent="rmi_survey_root_menu"
             action="survey_dashboard_action"
             sequence="4"
+            groups="rmi_survey.group_rmi_survey_admin"
     />
     <menuitem
             name="Aspek Dimensi"
@@ -85,6 +86,7 @@
             parent="rmi_survey_dashboard"
             action="survey_dashboard_dimension_action"
             sequence="1"
+            groups="rmi_survey.group_rmi_survey_admin"
     />
     <menuitem
             name="Dashboard Kalkulasi"
@@ -92,5 +94,6 @@
             parent="rmi_survey_dashboard"
             action="survey_dashboard_calculate_action"
             sequence="2"
+            groups="rmi_survey.group_rmi_survey_admin"
     />
 </odoo>

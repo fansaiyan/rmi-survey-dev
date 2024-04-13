@@ -75,6 +75,12 @@ class SurveyQuestionInherit(models.Model):
     dimensi_names = fields.Many2one('rmi.param_dimensi', 'Nama Dimensi')
     sub_dimensi_names = fields.Many2one('rmi.param_group', 'Nama Sub Dimensi',
                                         domain="[('param_dimensi', '=', dimensi_names)]")
+    document_ids = fields.One2many(
+        comodel_name='rmi.documents',
+        inverse_name='survey_ids',
+        string='Documents',
+        required=False
+    )
 
     @api.onchange('dimensi_names')
     def _onchange_dimension_id(self):

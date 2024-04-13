@@ -42,7 +42,18 @@
                 <field name="sub_dimensi_names"/>
             </xpath>
             <xpath expr="//notebook/page[@name='options']" position="after">
-                <page string="Bukti Dokumen" name="document_evidences">
+                <page
+                    string="Bukti Dokumen"
+                    name="document_evidences"
+                    groups="rmi_survey.group_rmi_survey_user,rmi_survey.group_rmi_survey_admin"
+                >
+                    <field name="document_ids">
+                        <tree>
+                            <field name="name" />
+                            <field name="files" />
+                            <field name="survey_ids" invisible="1" />
+                        </tree>
+                    </field>
                 </page>
             </xpath>
         </field>

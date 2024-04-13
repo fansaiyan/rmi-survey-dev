@@ -65,5 +65,6 @@
             parent="rmi_survey_root_menu"
             action="aspek_kinerja_action"
             sequence="2"
+            groups="rmi_survey.group_rmi_survey_admin"
     />
 </odoo>

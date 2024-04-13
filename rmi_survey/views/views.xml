@@ -4,7 +4,7 @@
             name="RMI Survey"
             id="rmi_survey_root_menu"
             web_icon="rmi_survey,static/description/rmi_survey.png"
-            groups="rmi_survey.group_rmi_survey_user"
+            groups="rmi_survey.group_rmi_survey_admin"
     />
     <menuitem
             name="Data Master"
