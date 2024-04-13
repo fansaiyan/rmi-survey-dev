@@ -72,28 +72,28 @@
             </form>
         </field>
     </record>
-    <menuitem
-            name="Dashboard"
-            id="rmi_survey_dashboard"
-            parent="rmi_survey_root_menu"
-            action="survey_dashboard_action"
-            sequence="4"
-            groups="rmi_survey.group_rmi_survey_admin"
-    />
-    <menuitem
-            name="Aspek Dimensi"
-            id="rmi_survey_dashboard_aspect_dimension"
-            parent="rmi_survey_dashboard"
-            action="survey_dashboard_dimension_action"
-            sequence="1"
-            groups="rmi_survey.group_rmi_survey_admin"
-    />
-    <menuitem
-            name="Dashboard Kalkulasi"
-            id="rmi_survey_dashboard_calculate"
-            parent="rmi_survey_dashboard"
-            action="survey_dashboard_calculate_action"
-            sequence="2"
-            groups="rmi_survey.group_rmi_survey_admin"
-    />
+<!--    <menuitem-->
+<!--            name="Dashboard"-->
+<!--            id="rmi_survey_dashboard"-->
+<!--            parent="rmi_survey_root_menu"-->
+<!--            action="survey_dashboard_action"-->
+<!--            sequence="4"-->
+<!--            groups="rmi_survey.group_rmi_survey_admin"-->
+<!--    />-->
+<!--    <menuitem-->
+<!--            name="Aspek Dimensi"-->
+<!--            id="rmi_survey_dashboard_aspect_dimension"-->
+<!--            parent="rmi_survey_dashboard"-->
+<!--            action="survey_dashboard_dimension_action"-->
+<!--            sequence="1"-->
+<!--            groups="rmi_survey.group_rmi_survey_admin"-->
+<!--    />-->
+<!--    <menuitem-->
+<!--            name="Dashboard Kalkulasi"-->
+<!--            id="rmi_survey_dashboard_calculate"-->
+<!--            parent="rmi_survey_dashboard"-->
+<!--            action="survey_dashboard_calculate_action"-->
+<!--            sequence="2"-->
+<!--            groups="rmi_survey.group_rmi_survey_admin"-->
+<!--    />-->
 </odoo>
