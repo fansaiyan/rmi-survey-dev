@@ -1,18 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-         <record id="survey_dashboard_action" model="ir.actions.act_window">
+        <record id="survey_dashboard_action" model="ir.actions.act_window">
             <field name="name">Dashboard</field>
             <field name="res_model">rmi.survey_dashboard</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
-         </record>
+        </record>
+
+        <record id="survey_dashboard_dimension_action" model="ir.actions.act_window">
+            <field name="name">Dashboard Aspek Dimensi</field>
+            <field name="res_model">rmi.survey_dashboard_aspect_dimension</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'create':False,'edit':True}</field>
+        </record>
+
+        <record id="survey_dashboard_calculate_action" model="ir.actions.act_window">
+            <field name="name">Dashboard Kalkulasi</field>
+            <field name="res_model">rmi.survey_dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
     </data>
+    <record id="aspect_dimension_dashboard_view_tree" model="ir.ui.view">
+        <field name="name">Dashboard Aspek Dimensi</field>
+        <field name="model">rmi.survey_dashboard_aspect_dimension</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="no" optional="show"/>
+                <field name="company" optional="hide"/>
+                <field name="name" optional="show"/>
+                <field name="question_id" invisible="1"/>
+                <field name="parameter_name" optional="show"/>
+                <field name="avg_value" optional="show"/>
+                <field name="min_value" optional="show"/>
+                <field name="max_value" optional="show"/>
+                <field name="range_value" optional="show"/>
+            </tree>
+        </field>
+    </record>
+    <record id="rmi_survey_form_view" model="ir.ui.view">
+        <field name="name">rmi.survey.form</field>
+        <field name="model">rmi.survey_dashboard_aspect_dimension</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <!-- Add or modify fields as needed -->
+                        <field name="name" />
+                        <field name="parameter_name" />
+                        <!-- Add other fields specific to rmi.survey -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
     <menuitem
             name="Dashboard"
             id="rmi_survey_dashboard"
             parent="rmi_survey_root_menu"
             action="survey_dashboard_action"
             sequence="4"
+    />
+    <menuitem
+            name="Aspek Dimensi"
+            id="rmi_survey_dashboard_aspect_dimension"
+            parent="rmi_survey_dashboard"
+            action="survey_dashboard_dimension_action"
+            sequence="1"
+    />
+    <menuitem
+            name="Dashboard Kalkulasi"
+            id="rmi_survey_dashboard_calculate"
+            parent="rmi_survey_dashboard"
+            action="survey_dashboard_calculate_action"
+            sequence="2"
     />
 </odoo>

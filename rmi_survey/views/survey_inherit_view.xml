@@ -10,6 +10,18 @@
                 <field name="jenis_industri"/>
                 <field name="periode"/>
             </xpath>
+            <xpath expr="//button[@name='action_archive']" position="after">
+                <button name="generate_adjust_aspect_dimension" string="Kalkulasi" type="object" attrs="{'invisible': [('answer_done_count', '&lt;=', 0)]}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button"
+                        name="action_view_source_dashboard_form"
+                        type="object"
+                        icon="fa-file-text-o"
+                        string="Aspek Dimensi"
+                        attrs="{'invisible': [('access_mode', '=', 'public')]}"
+                />
+            </xpath>
         </field>
     </record>
 
