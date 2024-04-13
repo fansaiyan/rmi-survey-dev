@@ -11,16 +11,22 @@
                 <field name="periode"/>
             </xpath>
             <xpath expr="//button[@name='action_archive']" position="after">
-                <button name="generate_adjust_aspect_dimension" string="Kalkulasi" type="object" attrs="{'invisible': [('answer_done_count', '&lt;=', 0)]}"/>
+                <button name="generate_adjust_aspect_dimension" string="Calculation" type="object" attrs="{'invisible': [('answer_done_count', '&lt;=', 0)]}"/>
             </xpath>
-            <xpath expr="//div[@name='button_box']" position="inside">
-                <button class="oe_stat_button"
-                        name="action_view_source_dashboard_form"
-                        type="object"
-                        icon="fa-file-text-o"
-                        string="Aspek Dimensi"
-                        attrs="{'invisible': [('access_mode', '=', 'public')]}"
-                />
+        </field>
+    </record>
+
+    <!-- Inherit Tree View Survey to Modify it -->
+    <record id="view_tree_survey_inherit" model="ir.ui.view">
+        <field name="name">view.tree.survey.inherit</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='success_ratio']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='answer_score_avg']" position="attributes">
+                <attribute name="optional">hide</attribute>
             </xpath>
         </field>
     </record>
@@ -34,6 +40,10 @@
             <xpath expr="//group/group/field[@name='question_type']" position="after">
                 <field name="dimensi_names"/>
                 <field name="sub_dimensi_names"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='options']" position="after">
+                <page string="Bukti Dokumen" name="document_evidences">
+                </page>
             </xpath>
         </field>
     </record>

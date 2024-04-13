@@ -12,7 +12,7 @@ class SurveyInherit(models.Model):
 
     jenis_industri = fields.Selection([('umum', 'Umum'), ('perbankan', 'Perbankan'), ('asuransi', 'Asuransi')],
                                       'Jenis Industri', default='umum')
-    periode = fields.Date(string='Periode', widget='year')
+    periode = fields.Char(string='Periode')
     dashboard_id = fields.Many2one('rmi.survey_dashboard_aspect_dimension', string='Dashboard')
 
     def generate_adjust_aspect_dimension(self):
@@ -43,6 +43,10 @@ class SurveyInherit(models.Model):
         fetched_data = self.env.cr.fetchall()
         # _logger.info(fetched_data)
         # Iterate over fetched_data and create records
+        table_existing = self.env['rmi.survey_dashboard_aspect_dimension'].search([('survey_id', '=', self.id)])
+        if table_existing:
+            # Delete the record
+            table_existing.unlink()
         for record_data in fetched_data:
             # Create a new record
             self.env['rmi.survey_dashboard_aspect_dimension'].create({
@@ -54,11 +58,11 @@ class SurveyInherit(models.Model):
                 'min_value': record_data[5],
                 'max_value': record_data[6],
                 'range_value': record_data[7],
-                'name': self.title
+                'name': self.title,
+                'survey_id': self.id
                 # Add more fields as needed
             })
 
-    def action_view_source_dashboard_form(self):
         self.ensure_one()
         result = self.env['ir.actions.act_window']._for_xml_id('rmi_survey.survey_dashboard_dimension_action')
         return result

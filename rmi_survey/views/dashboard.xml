@@ -51,7 +51,23 @@
                         <field name="name" />
                         <field name="parameter_name" />
                         <!-- Add other fields specific to rmi.survey -->
+                        <button name="get_table_detail" string="Get Detail" type="object" />
                     </group>
+                    <notebook>
+                        <page string="Detail Spesifik Aspek Dimensi" name="aspect_ids">
+                            <field name="aspect_ids">
+                                <tree create="0" delete="0">
+                                    <field name="no"/>
+                                    <field name="company"/>
+                                    <field name="parameter_name"/>
+                                    <field name="user"/>
+                                    <field name="department"/>
+                                    <field name="value"/>
+                                    <field name="dimension_ids" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
