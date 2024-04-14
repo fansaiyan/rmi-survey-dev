@@ -22,6 +22,8 @@ class SurveyInherit(models.Model):
                 ROW_NUMBER() OVER () AS no,
                 h.name as company,
                 a.question_id as question_id,
+                i.name as dimensi,
+                j.name as subdimensi,
                 (b.title->>'en_US')::varchar AS parameterName,
                 avg((e.value->>'en_US')::int) as avgvalue,
                 min((e.value->>'en_US')::int) as minvalue,
@@ -35,8 +37,10 @@ class SurveyInherit(models.Model):
                 left join res_users as f on f.partner_id = d.id
                 left join hr_employee as g on g.user_id = f.id
                 left join res_company as h on h.id = g.company_id
+                left join rmi_param_dimensi as i on i.id = b.dimensi_names
+                left join rmi_param_group as j on j.id = b.sub_dimensi_names
             where a.survey_id = {} and c.state = 'done'
-            GROUP BY a.question_id, parameterName, company
+            GROUP BY a.question_id, parameterName, company, i.name, j.name
             ORDER BY a.question_id ASC
         """.format(self.id)
         self.env.cr.execute(query_aspek_dimensi)
@@ -53,11 +57,13 @@ class SurveyInherit(models.Model):
                 'no': record_data[0],
                 'company': record_data[1],
                 'question_id': record_data[2],
-                'parameter_name': record_data[3],
-                'avg_value': record_data[4],
-                'min_value': record_data[5],
-                'max_value': record_data[6],
-                'range_value': record_data[7],
+                'dimension': record_data[3],
+                'sub_dimension': record_data[4],
+                'parameter_name': record_data[5],
+                'avg_value': record_data[6],
+                'min_value': record_data[7],
+                'max_value': record_data[8],
+                'range_value': record_data[9],
                 'name': self.title,
                 'survey_id': self.id
                 # Add more fields as needed

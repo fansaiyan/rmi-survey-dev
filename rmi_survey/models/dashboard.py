@@ -15,11 +15,13 @@ class DashboardAspectDimension(models.Model):
     _name = 'rmi.survey_dashboard_aspect_dimension'
     _description = 'Dashboard RMI Survey Aspect Dimension Model'
 
-    name = fields.Char()
+    name = fields.Char(string='Nama Survey')
     no = fields.Integer(string='No')
     company = fields.Char(string='Company')
     question_id = fields.Many2one('survey.question', string='Question')
     parameter_name = fields.Char(string='Parameter Name')
+    dimension = fields.Char(string='Dimensi')
+    sub_dimension = fields.Char(string='Subdimensi')
     avg_value = fields.Float(string='Average Value')
     min_value = fields.Float(string='Minimum Value')
     max_value = fields.Float(string='Maximum Value')

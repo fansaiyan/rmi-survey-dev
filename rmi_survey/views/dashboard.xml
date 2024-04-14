@@ -38,6 +38,8 @@
                 <field name="name" optional="show"/>
                 <field name="question_id" invisible="1"/>
                 <field name="parameter_name" optional="show"/>
+                <field name="dimension" optional="show"/>
+                <field name="sub_dimension" optional="show"/>
                 <field name="avg_value" optional="show"/>
                 <field name="min_value" optional="show"/>
                 <field name="max_value" optional="show"/>
