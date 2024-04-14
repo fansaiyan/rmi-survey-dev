@@ -18,9 +18,10 @@
     # for the full list
     'category': 'marketing',
     'version': '0.1',
+    'lisence': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','survey'],
+    'depends': ['base','survey', 'board'],
 
     # always loaded
     'data': [
@@ -39,5 +40,16 @@
         'views/survey_inherit_view.xml',
         'views/res_branch_view.xml',
         'views/dashboard.xml'
-    ]
+    ],
+
+    'assets': {
+        'web.assets_backend': [
+            'rmi_survey/static/src/components/**/*.js',
+            'rmi_survey/static/src/components/**/*.xml',
+            'rmi_survey/static/src/components/**/*.scss',
+        ],
+    },
+
+    'installable': True,
+    'application': True,
 }

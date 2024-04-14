@@ -22,6 +22,11 @@
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <record id="graphic_dashboard_rmi_survey" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">rmi_survey.rmi_dashboard</field>
+        </record>
     </data>
     <record id="aspect_dimension_dashboard_view_tree" model="ir.ui.view">
         <field name="name">Dashboard Aspek Dimensi</field>
@@ -72,14 +77,13 @@
             </form>
         </field>
     </record>
-<!--    <menuitem-->
-<!--            name="Dashboard"-->
-<!--            id="rmi_survey_dashboard"-->
-<!--            parent="rmi_survey_root_menu"-->
-<!--            action="survey_dashboard_action"-->
-<!--            sequence="4"-->
-<!--            groups="rmi_survey.group_rmi_survey_admin"-->
-<!--    />-->
+    <menuitem
+            name="Dashboard"
+            id="rmi_survey_dashboard_graphic"
+            parent="rmi_survey_root_menu"
+            action="graphic_dashboard_rmi_survey"
+            sequence="4"
+    />
 <!--    <menuitem-->
 <!--            name="Aspek Dimensi"-->
 <!--            id="rmi_survey_dashboard_aspect_dimension"-->
