@@ -14,6 +14,7 @@ class SurveyInherit(models.Model):
                                       'Jenis Industri', default='umum')
     periode = fields.Char(string='Periode')
     dashboard_id = fields.Many2one('rmi.survey_dashboard_aspect_dimension', string='Dashboard')
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company.id)
 
     def generate_adjust_aspect_dimension(self):
         # Execute custom SQL query
