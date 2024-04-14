@@ -51,7 +51,7 @@
                     <field name="document_ids">
                         <tree>
                             <field name="name" />
-                            <field name="files" />
+                            <field name="link_url" />
                             <field name="survey_ids" invisible="1" />
                         </tree>
                     </field>
