@@ -29,11 +29,12 @@ class AspekKinerja(models.Model):
     )
     total_rating_value = fields.Float(
         string="Total Nilai",
-        compute="_compute_total_rating_value",
-        readonly=True
+        compute="_compute_total_rating_value"
     )
     score_adjustment = fields.Float(string="Penyesuain Skor", readonly=True)
     survey_ids = fields.Many2one('survey.survey', string="Survey")
+    periode = fields.Char(string="Periode", readonly=True, related='survey_ids.periode')
+    jenis_industri = fields.Selection(string="Jenis Industri", readonly=True, related='survey_ids.jenis_industri')
 
     @api.onchange('final_rating_weight', 'aspect_values', 'composite_risk_levels')
     def _compute_conversion_rating_value(self):

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_rmi">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <table border="2" style="width: 30%;">
+                        <tr>
+                            <td style="background-color: #1795A3; color:white;" class="p-2">PERUSAHAAN</td>
+                            <td class="p-2"><t t-esc="o.company_name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #1795A3; color:white;" class="p-2">Tahun</td>
+                            <td class="p-2"><t t-esc="o.periode"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #1795A3; color:white;" class="p-2">No. Laporan</td>
+                            <td class="p-2">01/II/RMI/2023</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #1795A3; color:white;" class="p-2">Model RMI</td>
+                            <td class="p-2"><t t-esc="o.jenis_industri"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #1795A3; color:white;" class="p-2">Total Skor RMI</td>
+                            <td class="p-2">2,9</td>
+                        </tr>
+                    </table>
+
+                    <div class="page my-3">
+                        <h5 class="text-center">ASPEK KINERJA</h5>
+                    </div>
+                    <table border="2" style="width: 100%;">
+                        <tr>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">No</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Aspek</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Nilai Aspek</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Nilai Konversi</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Bobot</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Nilai Konversi</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Skor</th>
+                        </tr>
+                        <tr>
+                            <td class="p-2">1</td>
+                            <td class="p-2">Tingkat Kesehatan Peringkat Akhir (Final Rating)</td>
+                            <td class="p-2"><t t-esc="o.aspect_values.name"/></td>
+                            <td class="p-2"><t t-esc="o.aspect_conversion_value"/></td>
+                            <td class="p-2"><t t-esc="o.final_rating_weight"/></td>
+                            <td class="p-2"><t t-esc="o.conversion_rating_value"/></td>
+                            <td class="p-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">2</td>
+                            <td class="p-2">Peringkat Komposit Risiko</td>
+                            <td class="p-2"><t t-esc="o.composite_risk_levels.name"/></td>
+                            <td class="p-2"><t t-esc="o.composite_risk_conversion_value"/></td>
+                            <td class="p-2"><t t-esc="o.composite_risk_weight"/></td>
+                            <td class="p-2"><t t-esc="o.conversion_risk_value"/></td>
+                            <td class="p-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">1 s.d. 2</td>
+                            <td class="p-2" colspan="5">Skor Aspek Kinerja</td>
+                            <td class="p-2"><t t-esc="o.total_rating_value"/></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2"></td>
+                            <td class="p-2" colspan="5">Penyesuaian Skor</td>
+                            <td class="p-2"><t t-esc="o.score_adjustment"/></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2" colspan="6">SKOR RMI</td>
+                            <td class="p-2">2.9</td>
+                        </tr>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

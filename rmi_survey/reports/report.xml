@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="report_rmi_survey" model="ir.actions.report">
+        <field name="name">RMI Survey Report</field>
+        <field name="model">rmi.aspek_kinerja</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rmi_survey.report_rmi</field>
+        <field name="report_file">rmi_survey.report_rmi</field>
+        <field name="binding_model_id" ref="model_rmi_aspek_kinerja"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="report_rmi_survey" model="ir.actions.report">
+        <field name="paperformat_id" ref="rmi_survey.paperformat_rmi_report"/>
+    </record>
+</odoo>
