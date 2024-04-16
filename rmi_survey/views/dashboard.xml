@@ -32,7 +32,8 @@
         <field name="name">Dashboard Aspek Dimensi</field>
         <field name="model">rmi.survey_dashboard_aspect_dimension</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-danger="avg_value &lt; 3" decoration-success="avg_value &gt; 4"
+                  decoration-info="avg_value &gt; 2.9 or avg_value &lt; 3.9">
                 <field name="no" optional="show"/>
                 <field name="company" optional="hide"/>
                 <field name="name" optional="show"/>
@@ -55,10 +56,10 @@
                 <sheet>
                     <group>
                         <!-- Add or modify fields as needed -->
-                        <field name="name" />
-                        <field name="parameter_name" />
+                        <field name="name"/>
+                        <field name="parameter_name"/>
                         <!-- Add other fields specific to rmi.survey -->
-                        <button name="get_table_detail" string="Get Detail" type="object" />
+                        <button name="get_table_detail" string="Get Detail" type="object"/>
                     </group>
                     <notebook>
                         <page string="Detail Spesifik Aspek Dimensi" name="aspect_ids">
@@ -86,20 +87,4 @@
             action="graphic_dashboard_rmi_survey"
             sequence="4"
     />
-<!--    <menuitem-->
-<!--            name="Aspek Dimensi"-->
-<!--            id="rmi_survey_dashboard_aspect_dimension"-->
-<!--            parent="rmi_survey_dashboard"-->
-<!--            action="survey_dashboard_dimension_action"-->
-<!--            sequence="1"-->
-<!--            groups="rmi_survey.group_rmi_survey_admin"-->
-<!--    />-->
-<!--    <menuitem-->
-<!--            name="Dashboard Kalkulasi"-->
-<!--            id="rmi_survey_dashboard_calculate"-->
-<!--            parent="rmi_survey_dashboard"-->
-<!--            action="survey_dashboard_calculate_action"-->
-<!--            sequence="2"-->
-<!--            groups="rmi_survey.group_rmi_survey_admin"-->
-<!--    />-->
 </odoo>

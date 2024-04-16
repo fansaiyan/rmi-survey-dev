@@ -28,6 +28,32 @@
                     </table>
 
                     <div class="page my-3">
+                        <h5 class="text-center">ASPEK DIMENSI</h5>
+                    </div>
+                    <table border="2" style="width: 100%;">
+                        <tr>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Parameter</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Dimensi</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Deskripsi</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Skor Dimensi</th>
+                            <th style="background-color: #1795A3; color:white;" class="p-2">Skor</th>
+                        </tr>
+                        <tr>
+                            <td class="p-2">1 s.d. 3</td>
+                            <td class="p-2">1</td>
+                            <td class="p-2">Budaya dan Kapabilitas Risiko</td>
+                            <td class="p-2">3,7</td>
+                            <td class="p-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">1 s.d. 42</td>
+                            <td class="p-2" colspan="3">Skor Aspek Dimensi</td>
+                            <td class="p-2">3,4</td>
+                        </tr>
+                    </table>
+
+
+                    <div class="page my-3">
                         <h5 class="text-center">ASPEK KINERJA</h5>
                     </div>
                     <table border="2" style="width: 100%;">

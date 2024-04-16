@@ -76,10 +76,6 @@ class DashboardAspectDimension(models.Model):
                 'survey_id': self.survey_id.id,
                 'dimension_ids': self.id
             })
-        # return {
-        #     'type': 'ir.actions.client',
-        #     'tag': 'reload'
-        # }
 
 
 class DetailAspectDimension(models.Model):
@@ -101,3 +97,14 @@ class DetailAspectDimension(models.Model):
         readonly='1',
         required=False
     )
+
+
+class AspekDimensiCorporate(models.Model):
+    _name = 'rmi.aspek_dimensi_corporate'
+    _description = 'Aspek Dimensi Corporate'
+
+    parameter = fields.Char(string='Parameter', readonly=True)
+    dimensi = fields.Char(string='Dimension', readonly=True)
+    deskripsi = fields.Char(string='Deskripsi', readonly=True)
+    skor_dimensi = fields.Char(string='Skor Dimensi', readonly=True)
+    survey_id = fields.Many2one('survey.survey', string='Survey ID', readonly=True)

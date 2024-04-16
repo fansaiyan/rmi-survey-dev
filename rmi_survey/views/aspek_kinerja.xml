@@ -38,10 +38,6 @@
                             <field name="score_adjustment" string="Penyesuain Skor"/>
                         </group>
                     </group>
-                    <footer>
-                        <button name="final_save" string="Save" class="oe_highlight"
-                                type="object" data-hotkey="q" />
-                    </footer>
                 </sheet>
             </form>
         </field>

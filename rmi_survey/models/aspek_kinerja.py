@@ -80,5 +80,3 @@ class AspekKinerja(models.Model):
         else:
             self.score_adjustment = 0.00
 
-    def final_save(self):
-        print(self)
