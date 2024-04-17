@@ -35,6 +35,16 @@ class AspekKinerja(models.Model):
     survey_ids = fields.Many2one('survey.survey', string="Survey")
     periode = fields.Char(string="Periode", readonly=True, related='survey_ids.periode')
     jenis_industri = fields.Selection(string="Jenis Industri", readonly=True, related='survey_ids.jenis_industri')
+    state = fields.Selection([
+                 ('new', 'New'),
+                 ('done', 'Done'),
+    ], default='new', tracking=True)
+
+    @api.model
+    def create(self, vals):
+        new_order = super(AspekKinerja, self).create(vals)
+        new_order.state = 'new'
+        return new_order
 
     @api.onchange('final_rating_weight', 'aspect_values', 'composite_risk_levels')
     def _compute_conversion_rating_value(self):
