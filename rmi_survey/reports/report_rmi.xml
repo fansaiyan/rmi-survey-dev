@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <td style="background-color: #1795A3; color:white;" class="p-2">Total Skor RMI</td>
-                            <td class="p-2">2,9</td>
+                            <td class="p-2"><t t-esc="o.skor_rmi_final"/></td>
                         </tr>
                     </table>
 
@@ -101,7 +101,7 @@
                         </tr>
                         <tr>
                             <td class="p-2" colspan="6">SKOR RMI</td>
-                            <td class="p-2">2.9</td>
+                            <td class="p-2"><t t-esc="o.skor_rmi_final"/></td>
                         </tr>
                     </table>
                 </t>

@@ -47,6 +47,7 @@ class AspekKinerja(models.Model):
     )
     skor_aspek_dimensi = fields.Float(string="Skor Aspek Dimensi", readonly=True)
     is_aspek_dimensi = fields.Boolean(string="Aspek Dimensi Exist", readonly=True)
+    skor_rmi_final = fields.Float(string="Skor RMI Final", readonly=True)
 
     def generate_report(self):
         query_calculation = """
@@ -96,6 +97,7 @@ class AspekKinerja(models.Model):
             # Calculate skor_aspek_dimensi
             skor_aspek_dimensi = total_skor_dimensi / len(fetched_data)
             self.skor_aspek_dimensi = skor_aspek_dimensi
+            self.skor_rmi_final = skor_aspek_dimensi + self.score_adjustment
             if self.skor_aspek_dimensi <= 3:
                 self.is_aspek_dimensi = False
             else:
