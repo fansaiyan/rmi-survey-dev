@@ -39,6 +39,69 @@ class AspekKinerja(models.Model):
                  ('new', 'New'),
                  ('done', 'Done'),
     ], default='new', tracking=True)
+    aspek_corporate_ids = fields.One2many(
+        'rmi.aspek_dimensi_corporate',
+        'aspek_kinerja_ids',
+        string="Aspek Kinerja Corporate",
+        readonly=True
+    )
+    skor_aspek_dimensi = fields.Float(string="Skor Aspek Dimensi", readonly=True)
+    is_aspek_dimensi = fields.Boolean(string="Aspek Dimensi Exist", readonly=True)
+
+    def generate_report(self):
+        query_calculation = """
+            select
+                CASE
+                    WHEN f.name = 'Budaya dan Kapabilitas Risiko' THEN '1 s.d. 3'
+                    WHEN f.name = 'Organisasi dan Tata Kelola Risiko' THEN '4 s.d. 19'
+                    WHEN f.name = 'Kerangka Risiko dan Kepatuhan' THEN '20 s.d. 33'
+                    WHEN f.name = 'Proses dan Kontrol Risiko' THEN '34 s.d. 39'
+                    ELSE '40 s.d. 42'
+                END as parameter,
+                ROW_NUMBER() OVER () AS dimensi,
+                f.name as deskripsi,
+                TRUNC(avg((e.value->>'en_US')::int) * 10) / 10.0 AS skordimensi
+                from survey_user_input_line as a
+                left join survey_question as b on a.question_id = b.id
+                left join survey_user_input as c on c.id = a.user_input_id
+                left join res_partner as d on d.id = c.partner_id
+                left join survey_question_answer as e on e.id = a.suggested_answer_id
+                left join rmi_param_dimensi as f on f.id = b.dimensi_names
+                left join rmi_param_group as g on g.id = b.sub_dimensi_names
+            where a.survey_id = {}
+            group by f.name, f.id
+            order by f.id asc
+        """.format(self.id)
+        self.env.cr.execute(query_calculation)
+        fetched_data = self.env.cr.fetchall()
+        # _logger.info(fetched_data)
+        table_existing = self.env['rmi.aspek_dimensi_corporate'].search([('survey_id', '=', self.survey_ids.id)])
+        if table_existing:
+            # Delete the record
+            table_existing.unlink()
+        for record_data in fetched_data:
+            # Create a new record
+            self.env['rmi.aspek_dimensi_corporate'].create({
+                'parameter': record_data[0],
+                'dimensi': record_data[1],
+                'deskripsi': record_data[2],
+                'skor_dimensi': record_data[3],
+                'survey_id': self.survey_ids.id,
+                'aspek_kinerja_ids': self.id
+            })
+
+            # Sum the skor_dimensi
+            total_skor_dimensi = sum(record[3] for record in fetched_data)
+
+            # Calculate skor_aspek_dimensi
+            skor_aspek_dimensi = total_skor_dimensi / len(fetched_data)
+            self.skor_aspek_dimensi = skor_aspek_dimensi
+            if self.skor_aspek_dimensi <= 3:
+                self.is_aspek_dimensi = False
+            else:
+                self.is_aspek_dimensi = True
+
+        return self.env.ref('rmi_survey.report_penilaian_rmi').report_action(self)
 
     @api.model
     def create(self, vals):

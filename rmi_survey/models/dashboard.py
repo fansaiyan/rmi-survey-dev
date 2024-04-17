@@ -108,3 +108,4 @@ class AspekDimensiCorporate(models.Model):
     deskripsi = fields.Char(string='Deskripsi', readonly=True)
     skor_dimensi = fields.Char(string='Skor Dimensi', readonly=True)
     survey_id = fields.Many2one('survey.survey', string='Survey ID', readonly=True)
+    aspek_kinerja_ids = fields.Many2one('rmi.aspek_kinerja', string='Aspek Kinerja Ids', readonly=True)

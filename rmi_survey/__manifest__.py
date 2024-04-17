@@ -41,8 +41,7 @@
         'views/res_branch_view.xml',
         'views/dashboard.xml',
         'reports/report_rekomendasi.xml',
-        'reports/report_rmi.xml',
-        'reports/report_rmi_paperformat.xml'
+        'reports/report_rmi.xml'
     ],
 
     'assets': {

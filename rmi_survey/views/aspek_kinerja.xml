@@ -8,17 +8,6 @@
             <field name="view_mode">tree,form</field>
         </record>
     </data>
-    <record id="report_rmi_survey" model="ir.actions.report">
-        <field name="name">Report Penilaian</field>
-        <field name="model">rmi.aspek_kinerja</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">rmi_survey.report_rmi</field>
-        <field name="report_file">rmi_survey.report_rmi</field>
-        <field name="binding_model_id" eval="False"/>
-        <field name="binding_type">report</field>
-        <field name="print_report_name">
-            'Report Penilaian  - %s' % (object.survey_ids.title)</field>
-    </record>
     <record id="report_rekomendasi_rmi" model="ir.actions.report">
         <field name="name">Report Rekomendasi</field>
         <field name="model">rmi.aspek_kinerja</field>
@@ -30,9 +19,6 @@
         <field name="print_report_name">
             'Report Rekomendasi  - %s' % (object.survey_ids.title)</field>
     </record>
-    <record id="report_rmi_survey" model="ir.actions.report">
-        <field name="paperformat_id" ref="rmi_survey.paperformat_rmi_report"/>
-    </record>
     <record id="aspek_kinerja_view_form" model="ir.ui.view">
         <field name="name">Form Aspek Kinerja</field>
         <field name="model">rmi.aspek_kinerja</field>
@@ -40,9 +26,9 @@
             <form>
                 <header>
                     <button
-                        name="%(report_rmi_survey)d"
+                        name="generate_report"
                         string="Report Penilaian"
-                        type="action"
+                        type="object"
                         icon="fa-print"
                         attrs="{'invisible': [('state', '=', 'new')]}"
                     />
@@ -96,6 +82,32 @@
                 <field name="score_adjustment" optional="hide"/>
             </tree>
         </field>
+    </record>
+
+    <record id="paperformat_rmi_report" model="report.paperformat">
+        <field name="name">Paper Format RMI Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="report_penilaian_rmi" model="ir.actions.report">
+        <field name="name">Report Penilaian RMI</field>
+        <field name="model">rmi.aspek_kinerja</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rmi_survey.report_rmi</field>
+        <field name="print_report_name">
+            'Report Penilaian - %s' % (object.survey_ids.title)
+        </field>
+        <field name="paperformat_id" ref="rmi_survey.paperformat_rmi_report" />
     </record>
     <menuitem
             name="Aspek Kinerja"

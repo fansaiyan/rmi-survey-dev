@@ -27,10 +27,10 @@
                         </tr>
                     </table>
 
-                    <div class="page my-3">
+                    <div class="page my-3" t-if="o.is_aspek_dimensi">
                         <h5 class="text-center">ASPEK DIMENSI</h5>
                     </div>
-                    <table border="2" style="width: 100%;">
+                    <table border="2" style="width: 100%;" t-if="o.is_aspek_dimensi">
                         <tr>
                             <th style="background-color: #1795A3; color:white;" class="p-2">Parameter</th>
                             <th style="background-color: #1795A3; color:white;" class="p-2">Dimensi</th>
@@ -39,16 +39,21 @@
                             <th style="background-color: #1795A3; color:white;" class="p-2">Skor</th>
                         </tr>
                         <tr>
-                            <td class="p-2">1 s.d. 3</td>
-                            <td class="p-2">1</td>
-                            <td class="p-2">Budaya dan Kapabilitas Risiko</td>
-                            <td class="p-2">3,7</td>
-                            <td class="p-2"></td>
+                            <t t-set="lines" t-value="o.aspek_corporate_ids"/>
+                                <t t-foreach="lines" t-as="line">
+                                    <tr>
+                                        <td class="p-2"><span t-field="line.parameter"/></td>
+                                        <td class="p-2"><span t-field="line.dimensi"/></td>
+                                        <td class="p-2"><span t-field="line.deskripsi"/></td>
+                                        <td class="p-2"><span t-field="line.skor_dimensi"/></td>
+                                        <td class="p-2"></td>
+                                    </tr>
+                                </t>
                         </tr>
                         <tr>
                             <td class="p-2">1 s.d. 42</td>
                             <td class="p-2" colspan="3">Skor Aspek Dimensi</td>
-                            <td class="p-2">3,4</td>
+                            <td class="p-2"><span t-field="o.skor_aspek_dimensi"/></td>
                         </tr>
                     </table>
 
