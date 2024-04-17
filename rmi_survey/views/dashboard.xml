@@ -9,7 +9,7 @@
         </record>
 
         <record id="survey_dashboard_dimension_action" model="ir.actions.act_window">
-            <field name="name">Dashboard Aspek Dimensi</field>
+            <field name="name">Adjust Aspek Dimensi</field>
             <field name="res_model">rmi.survey_dashboard_aspect_dimension</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
@@ -29,7 +29,7 @@
         </record>
     </data>
     <record id="aspect_dimension_dashboard_view_tree" model="ir.ui.view">
-        <field name="name">Dashboard Aspek Dimensi</field>
+        <field name="name">aspect.dimension.dashboard.view.tree</field>
         <field name="model">rmi.survey_dashboard_aspect_dimension</field>
         <field name="arch" type="xml">
             <tree decoration-danger="avg_value &lt; 3" decoration-success="avg_value &gt; 4"
@@ -38,9 +38,9 @@
                 <field name="company" optional="hide"/>
                 <field name="name" optional="show"/>
                 <field name="question_id" invisible="1"/>
-                <field name="parameter_name" optional="show"/>
                 <field name="dimension" optional="show"/>
                 <field name="sub_dimension" optional="show"/>
+                <field name="parameter_name" optional="show"/>
                 <field name="avg_value" optional="show"/>
                 <field name="min_value" optional="show"/>
                 <field name="max_value" optional="show"/>
