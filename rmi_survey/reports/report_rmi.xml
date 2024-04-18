@@ -15,7 +15,7 @@
                         </tr>
                         <tr>
                             <td style="background-color: #1795A3; color:white;" class="p-2">No. Laporan</td>
-                            <td class="p-2">01/II/RMI/2023</td>
+                            <td class="p-2"><t t-esc="o.no_laporan"/></td>
                         </tr>
                         <tr>
                             <td style="background-color: #1795A3; color:white;" class="p-2">Model RMI</td>

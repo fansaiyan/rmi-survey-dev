@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 from odoo import models, fields, api
+from datetime import datetime
 
 
 class AspekKinerja(models.Model):
@@ -48,6 +50,7 @@ class AspekKinerja(models.Model):
     skor_aspek_dimensi = fields.Float(string="Skor Aspek Dimensi", readonly=True)
     is_aspek_dimensi = fields.Boolean(string="Aspek Dimensi Exist", readonly=True)
     skor_rmi_final = fields.Float(string="Skor RMI Final", readonly=True)
+    no_laporan = fields.Char(string="Nomor Laporan", readonly=True)
 
     def generate_report(self):
         query_calculation = """
@@ -72,7 +75,7 @@ class AspekKinerja(models.Model):
             where a.survey_id = {}
             group by f.name, f.id
             order by f.id asc
-        """.format(self.id)
+        """.format(self.survey_ids.id)
         self.env.cr.execute(query_calculation)
         fetched_data = self.env.cr.fetchall()
         # _logger.info(fetched_data)
@@ -108,7 +111,25 @@ class AspekKinerja(models.Model):
     @api.model
     def create(self, vals):
         new_order = super(AspekKinerja, self).create(vals)
-        new_order.state = 'new'
+
+        current_time = datetime.now()
+        dt_sequence = self.env['ir.sequence'].sudo().search(
+            [('code', '=', 'rmi.survey')],
+            limit=1
+        )
+        year = current_time.strftime('%y')
+        month = current_time.strftime('%mm')
+        next_number = dt_sequence.number_next
+        formatted_number = str(next_number).zfill(2)
+        sequence_prefix = formatted_number + "/"
+        sequence_suffix = month + "/RMI/" + year
+
+        no_laporan = sequence_prefix + sequence_suffix
+        new_order.write({'no_laporan': no_laporan, 'state': 'done'})
+        next_number += 1
+        dt_sequence.write({
+            'number_next': next_number
+        })
         return new_order
 
     @api.onchange('final_rating_weight', 'aspect_values', 'composite_risk_levels')
