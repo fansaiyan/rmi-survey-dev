@@ -8,7 +8,7 @@
                         <div class="col m-0 p-0">
                             <div class="shadow-sm border m-2 p-4 bg-white">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h1 class="text-primary fw-bold">Custom Sales Dashboard</h1>
+                                    <h2 class="text-primary fw-bold">Kalkulasi &amp; Outpout</h2>
                                     <div>
                                         <select class="form-select">
                                             <option value="0">Select Period</option>
@@ -17,6 +17,12 @@
                                             <option value="90">Last 90 Days</option>
                                             <option value="365">Last 365 Days</option>
                                         </select>
+<!--                                        <select class="form-select" data-select="survey" t-model="state.surveyFilter" t-attf-value="{{ state.selectedFilterSurvey }}">-->
+<!--                                            <option value="0">Select Survey</option>-->
+<!--                                            <t t-if="selectedFilterSurvey" t-foreach="selectedFilterSurvey" t-as="option" t-key="option.value">-->
+<!--                                                <option t-att-value="option.value" t-esc="option.label"></option>-->
+<!--                                            </t>-->
+<!--                                        </select>-->
                                     </div>
                                 </div>
                             </div>
